@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Font Converter</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+       <div class="header">
+            <h1 align="center">Font Converter</h1> 
+       </div> <br>
+       <form onsubmit="changeFont(event)">
+            <p><label for="text" class="text">Enter Yout Text Here : </label></p>
+            <textarea name="textinput" id="textinput" cols="50%" rows="10" placeholder="Enter your text here "></textarea><br>
+            <label for="text" class="text">Choose Your Font </label>
+            <select name="font_styles" id="font_styles">
+                <option value="Montserrat">Montserrat</option>
+                <option value="Roboto Condenssed , sans-serif">Roboto Condensed , sans-serif</option>
+                <option value="Ubuntu , sans-serif">Ubuntu , sans-serif</option>
+            </select> 
+            <br><br>
+            <input type="submit" value="Submit">
+            <br><br>
+       </form> 
+       <p><label for="text" class="text">Converted Text</label></p>
+       <textarea name="newText" id="newText" cols="50%" rows="10" placeholder="Converted Text"></textarea>
+    </div>
+    <footer>
+        <a href="https://www.linkedin.com/in/mohammed-riyaan-459235180/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <br><br>
+        <p>CopyRights. &copy; All Rights Reserved.</p>
+        <span id="date"></span> <!--span is uded the divide one single line of code.-->
+    </footer>
+</body>
+<script>
+    // update the date in the footer
+    document.getElementById("date").innerText=new Date().getFullYear();
+    function changeFont(event){
+        // prevent the page from reloading
+        event.preventDefault();
+        
+        // Getting input from user text area
+        let text=document.getElementById("textinput").value;
+        // We are using .value to get the content inside the textarea.
+        console.log(text);
+        
+        // Getting Font Name from select Drop down menu.
+        let fontName=document.getElementById("font_styles").value;
+        console.log(fontName);
+
+        // this is the element that has the ooutput text area
+        let formatText=document.getElementById("newText");
+        // We are not using the value because we have to give the input above and it should just display.
+        console.log(formatText);
+        
+        // changing text of the output text area.
+        formatText.innerText=text;
+
+        // adding a font style for output text area.
+        formatText.style.fontFamily=fontName;
+    }
+</script>
+
+</html>
